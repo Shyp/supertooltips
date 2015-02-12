@@ -37,6 +37,7 @@ public class ToolTip {
     private int mOverlap;
     private int mStartMargin;
     private int mEndMargin;
+    private boolean mWrapContent;
 
     /**
      * Creates a new ToolTip without any values.
@@ -51,6 +52,7 @@ public class ToolTip {
         mOverlap = 0;
         mStartMargin = 0;
         mEndMargin = 0;
+        mWrapContent = false;
     }
 
     /**
@@ -179,6 +181,16 @@ public class ToolTip {
     }
 
     /**
+     * Set the ToolTip to use a width of wrapContent
+     *
+     * @return this ToolTip to build upon.
+     */
+    public ToolTip withWrapContent(final boolean wrapContent) {
+        mWrapContent = wrapContent;
+        return this;
+    }
+
+    /**
      * @param typeface the typeface to set
      */
     public void withTypeface(final Typeface typeface) {
@@ -230,5 +242,9 @@ public class ToolTip {
 
     public int getEndMargin() {
         return mEndMargin;
+    }
+
+    public boolean getWrapContent() {
+        return mWrapContent;
     }
 }
