@@ -150,7 +150,7 @@ public class ToolTip {
     }
 
     /**
-     * Set the number of dps for which the ToolTip overlaps the anchored View.
+     * Set the number of pixels for which the ToolTip overlaps the anchored View.
      *
      * @return this ToolTip to build upon.
      */
@@ -160,7 +160,7 @@ public class ToolTip {
     }
 
     /**
-     * Set the horizontal margin in dps for the ToolTip
+     * Set the horizontal margin in pixels for the ToolTip
      *
      * @return this ToolTip to build upon.
      */
@@ -171,7 +171,7 @@ public class ToolTip {
     }
 
     /**
-     * Set the horizontal margin in dps for the ToolTip
+     * Set the horizontal margin in pixels for the ToolTip
      *
      * @return this ToolTip to build upon.
      */

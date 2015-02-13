@@ -145,16 +145,12 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
         }
     }
 
-    private int dpsToPixels(int dps) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dps, mResources.getDisplayMetrics());
-    }
-
     private void applyToolTipPosition() {
         mWidth = mContentHolder.getWidth();
 
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        layoutParams.leftMargin = dpsToPixels(mToolTip.getStartMargin());
-        layoutParams.rightMargin = dpsToPixels(mToolTip.getEndMargin());
+        layoutParams.leftMargin = mToolTip.getStartMargin();
+        layoutParams.rightMargin = mToolTip.getEndMargin();
 
         if (mToolTip.getWrapContent())
             layoutParams.width = RelativeLayout.LayoutParams.WRAP_CONTENT;
@@ -177,7 +173,9 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
 
         mRelativeMasterViewX = masterViewScreenPosition[0] - parentViewScreenPosition[0];
         mRelativeMasterViewY = masterViewScreenPosition[1] - parentViewScreenPosition[1];
-        final int relativeMasterViewCenterX = mRelativeMasterViewX + masterViewWidth / 2;
+
+        int totalMargin = mToolTip.getStartMargin() + mToolTip.getEndMargin();
+        final int relativeMasterViewCenterX = mRelativeMasterViewX + (masterViewWidth - totalMargin) / 2;
 
         int toolTipViewAboveY = mRelativeMasterViewY - getHeight();
         int toolTipViewBelowY = Math.max(0, mRelativeMasterViewY + masterViewHeight);
@@ -202,7 +200,7 @@ public class ToolTipView extends LinearLayout implements ViewTreeObserver.OnPreD
 
         int toolTipViewY;
 
-        int overlapInPixels = dpsToPixels(mToolTip.getOverlap());
+        int overlapInPixels = mToolTip.getOverlap();
 
         if (showBelow) {
             toolTipViewY = toolTipViewBelowY - overlapInPixels;
