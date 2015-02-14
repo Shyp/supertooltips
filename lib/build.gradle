@@ -1,6 +1,6 @@
 apply plugin: 'android-library'
 
-apply from: 'pushMaven.gradle'
+//apply from: 'pushMaven.gradle' Uncomment when building
 
 android {
     compileSdkVersion 19
@@ -10,7 +10,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 19
         versionCode Integer.parseInt(new Date().format('yyyyMMddHH'))
-        versionName VERSION_NAME
+        versionName '1' // Switch to VERSION_NAME when building
     }
 
     compileOptions {
